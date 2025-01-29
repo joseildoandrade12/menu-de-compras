@@ -21,7 +21,6 @@ export default function initContentCard() {
                 const tituloCard = card.querySelector(".container-descricao h2");
                 const precoCard = card.querySelector(".container-descricao .preco");
                 const { image, category, name, price } = dadosJson[index];
-
                 initChangeImage(img, image, name);
                 tituloCard.innerText = name;
                 precoCard.innerText += price;
