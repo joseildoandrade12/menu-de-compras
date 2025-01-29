@@ -5,7 +5,7 @@ export default function initContentCard() {
     if (cards.length) {
         async function puxarDados() {
             try {
-                const dadosResponse = await fetch("../../data.json");
+                const dadosResponse = await fetch("data.json");
                 const dadosJson = await dadosResponse.json();
                 inserirDados(dadosJson);
             } catch (erro) {
