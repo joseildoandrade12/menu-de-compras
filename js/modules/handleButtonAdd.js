@@ -1,33 +1,29 @@
-export default function initButtonAdd() {}
-const sections = document.querySelectorAll(".container-imagem");
-const classAtivo = "ativo";
+export default function initButtonAdd() {
+    const sections = document.querySelectorAll(".container-imagem");
+    const classAtivo = "ativo";
 
-sections.forEach((section) => {
-    const button = section.querySelector(".btn-adicionar");
-    button.addEventListener("click", addClassItens);
-});
+    sections.forEach((section) => {
+        const button = section.querySelector(".btn-adicionar");
+        button.addEventListener("click", () => {
+            addClassItens(button, section);
+        });
+    });
 
-function addClassItens(event) {
-    event.preventDefault();
-    const image = this.parentElement.querySelector("img");
-    image.classList.add(classAtivo);
-    this.classList.add(classAtivo);
-    removeElements(this);
-    addElementsNew(this);
+    const addClassItens = (button, section) => {
+        if (button.classList.contains(classAtivo)) return;
+        const image = section.querySelector("img");
+        const elementsToAddClass = [
+            image,
+            button,
+            button.querySelector(".icon-car"),
+            button.querySelector("p"),
+            button.querySelector(".contador-quantidade"),
+            button.querySelector(".diminuir"),
+            button.querySelector(".aumentar"),
+        ];
+        elementsToAddClass.forEach((element) => {
+            if (element) element.classList.add(classAtivo);
+        });
+        button.querySelector(".contador-quantidade").innerText = 1;
+    };
 }
-
-const removeElements = (button) => {
-    const icon = button.querySelector(".icon-car");
-    const text = button.querySelector("p");
-    text.classList.add(classAtivo);
-    icon.classList.add(classAtivo);
-};
-
-const addElementsNew = (button) => {
-    const buttonDiminuir = button.querySelector(".diminuir");
-    const buttonAumentar = button.querySelector(".aumentar");
-    const contadorDeItens = button.querySelector(".contador-quantidade");
-    buttonAumentar.classList.add(classAtivo);
-    buttonDiminuir.classList.add(classAtivo);
-    contadorDeItens.classList.add(classAtivo);
-};
