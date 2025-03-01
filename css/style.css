@@ -93,6 +93,7 @@ body {
     font-weight: 600;
 }
 .carrinho {
+    margin-top: 93px;
     align-self: start;
     border-radius: 8px;
     background-color: #ffffff;
@@ -182,7 +183,7 @@ body {
 
 @media (max-width: 550px) {
     .container-imagem {
-        width: 400px;
+        max-width: 400px;
         margin-right: 0;
     }
     .btn-adicionar {
@@ -212,32 +213,50 @@ body {
 .diminuir,
 .aumentar {
     display: none;
-    line-height: center;
     justify-content: center;
     align-items: center;
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    font-family: "Red Hat Text", serif;
-    font-size: 1rem;
-    font-weight: 400;
-    color: white;
     border: 1px solid white;
+    background-color: #c73b0f;
+}
+
+.diminuir::after,
+.aumentar::after,
+.aumentar::before {
+    content: "";
+    width: 8px;
+    height: 2px;
+    background-color: white;
+    border-radius: 1px;
+}
+
+.aumentar::before {
+    position: absolute;
+    transform: rotate(90deg);
+}
+
+.diminuir:hover::after,
+.aumentar:hover::after,
+.aumentar:hover::before {
     background-color: #c73b0f;
 }
 
 .diminuir:hover,
 .aumentar:hover {
-    color: #c73b0f;
     background-color: white;
     transition: 0.2s;
 }
+
 .diminuir.ativo,
 .aumentar.ativo {
     display: flex;
 }
 
 .contador-quantidade {
+    width: 20px;
+    text-align: center;
     display: none;
     font-size: 0.875rem;
     font-weight: 600;

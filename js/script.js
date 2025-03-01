@@ -1,7 +1,7 @@
 import initContentCard from "./modules/contentCard.js";
 import initButtonAdd from "./modules/handleButtonAdd.js";
-import HandleButtonCard from "./modules/handleButtonCard.js";
+import handleQuantityProduct from "./modules/handleQuantityProduct.js";
 
 initContentCard();
 initButtonAdd()
-HandleButtonCard()
+handleQuantityProduct()
