@@ -1,16 +1,25 @@
+import createElementsCart from "./createElementsCart.js";
+import handleQuantityProduct from "./handleQuantityProduct.js";
+
 export default function initButtonAdd() {
-    const sections = document.querySelectorAll(".container-imagem");
+    
+    const sections = document.querySelectorAll(".produto");
     const classAtivo = "ativo";
 
     sections.forEach((section) => {
-        const button = section.querySelector(".btn-adicionar");
+        const descricaoProdutos = section.querySelector(".container-descricao");
+        const containerImagem = section.querySelector(".container-imagem");
+        const button = containerImagem.querySelector(".btn-adicionar");
         button.addEventListener("click", () => {
-            addClassItens(button, section);
+            if (!button.classList.contains(classAtivo)) {
+                addClassItens(button, containerImagem);
+                pushDadosButton(descricaoProdutos);
+                handleQuantityProduct(button);
+            }
         });
     });
 
     const addClassItens = (button, section) => {
-        if (button.classList.contains(classAtivo)) return;
         const image = section.querySelector("img");
         const elementsToAddClass = [
             image,
@@ -24,6 +33,15 @@ export default function initButtonAdd() {
         elementsToAddClass.forEach((element) => {
             if (element) element.classList.add(classAtivo);
         });
-        button.querySelector(".contador-quantidade").innerText = 1;
+    };
+
+    const pushDadosButton = (descricaoProdutos) => {
+        const conteudos = {
+            nomeProduto: descricaoProdutos.querySelector("h2").innerText,
+            precoProduto: descricaoProdutos.querySelector(".preco").innerText,
+            quantidadeItem: 1,
+        };
+
+        createElementsCart(conteudos);
     };
 }
