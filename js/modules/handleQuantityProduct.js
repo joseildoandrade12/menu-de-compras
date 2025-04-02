@@ -18,7 +18,7 @@ export default function handleQuantityProduct(button) {
     setTimeout(() => button.classList.remove(classAtivo), 10);
 
     buttonsDiminuir.removeEventListener("click", diminuirEventListener);
-    buttonsAumentar.removeEventListener("click", aumentarEvent);
+    buttonsAumentar.removeEventListener("click", aumentarEventListener);
   };
 
   const aumentarProdutos = (quantidadeItens) =>

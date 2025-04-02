@@ -2,7 +2,6 @@ import createElementsCart from "./createElementsCart.js";
 import handleQuantityProduct from "./handleQuantityProduct.js";
 
 export default function initButtonAdd() {
-    
     const sections = document.querySelectorAll(".produto");
     const classAtivo = "ativo";
 
