@@ -1,31 +1,27 @@
 import initChangeImage from "./changeImage.js";
+import createItensMenu from "./createItensMenu.js";
+import initButtonAdd from "./handleButtonAdd.js";
 
-export default function initContentCard() {
-    const cards = document.querySelectorAll("[data-card]");
-    if (cards.length) {
-        async function puxarDados() {
-            try {
-                const dadosResponse = await fetch("data.json");
-                const dadosJson = await dadosResponse.json();
-                inserirDados(dadosJson);
-            } catch (erro) {
-                console.log(erro);
-            }
+export default async function initContentCard() {
+    const puxarDados = async () => {
+        try {
+            const dadosResponse = await fetch("data.json");
+            const dadosJson = await dadosResponse.json();
+            inserirDados(dadosJson);
+        } catch (erro) {
+            console.log(erro);
         }
-        puxarDados();
-
-        function inserirDados(dadosJson) {
-            cards.forEach((card, index) => {
-                const img = card.querySelector(".container-imagem img");
-                const paragrafoCard = card.querySelector(".container-descricao p");
-                const tituloCard = card.querySelector(".container-descricao h2");
-                const precoCard = card.querySelector(".container-descricao .preco");
-                const { image, category, name, price } = dadosJson[index];
-                initChangeImage(img, image, name);
-                tituloCard.innerText = name;
-                precoCard.innerText += price;
-                paragrafoCard.innerText = category;
-            });
-        }
-    }
+    };
+    puxarDados();
+ 
+    const inserirDados = (dadosJson) => {
+        dadosJson.forEach((dado, index) => {
+            const section = createItensMenu(dado);
+            section.setAttribute('id', index + 1)
+            const imagem = section.querySelector('.container-imagem img')
+            const {image, name} = dado
+            initChangeImage(imagem, image, name)
+            initButtonAdd()
+        });
+    };
 }
