@@ -61,7 +61,7 @@ export default function createItensMenu({ name, category, price }) {
         const quantidadeItem = createElement("span", "contador-quantidade");
         const aumentar = createElement("span", "aumentar");
 
-        iconButton.setAttribute("src", "../../assets/images/icon-add-to-cart.svg");
+        iconButton.setAttribute("src", "assets/images/icon-add-to-cart.svg");
         paragrafoButton.innerText = "Add to Cart";
 
         divButton.appendChild(iconButton);
