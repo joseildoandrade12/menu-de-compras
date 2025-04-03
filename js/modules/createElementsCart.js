@@ -1,4 +1,4 @@
-export default function createElementsCart({ nomeProduto, precoProduto, quantidadeItem }) {
+export default function createElementsCart({ nomeProduto, precoProduto, idProduto }) {
     const carrinho = document.querySelector(".carrinho");
     const valorTotal = carrinho.querySelector(".valor-total");
 
@@ -10,6 +10,7 @@ export default function createElementsCart({ nomeProduto, precoProduto, quantida
 
     const addContainer = () => {
         const divContainer = createElement("div", "container-produto-carrinho");
+        divContainer.setAttribute('id', idProduto)
         carrinho.insertBefore(divContainer, valorTotal);
         addItensContainer(divContainer);
     };
@@ -32,8 +33,9 @@ export default function createElementsCart({ nomeProduto, precoProduto, quantida
         const valorMultiplicado = createElement("span", "valor-multiplicado");
 
         tituloItem.innerText = nomeProduto;
-        valorProduto.innerText = precoProduto;
-        valorMultiplicado.innerText = quantidadeItem * precoProduto;
+        valorProduto.innerText = `@${precoProduto}` ;
+        quantidadeItens.innerText = '1x'
+        valorMultiplicado.innerText = precoProduto;
 
         containerValores.appendChild(quantidadeItens);
         containerValores.appendChild(valorProduto);
