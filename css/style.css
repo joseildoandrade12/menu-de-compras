@@ -128,70 +128,6 @@ body {
     color: #ad8985;
     font-weight: 500;
 }
-@media (max-width: 1280px) {
-    .container-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-    .carrinho {
-        border-radius: 8px;
-        background-color: #ffffff;
-        width: 300px;
-        max-height: fit-content;
-        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-    }
-    .carrinho .conteudo-carrinho-inicial img {
-        width: 110px;
-        height: 110px;
-        margin-bottom: 24px;
-    }
-}
-@media (max-width: 930px) {
-    .container-grid {
-        grid-template-columns: 1fr;
-    }
-    .container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .container-grid {
-        display: flex;
-        flex-direction: column;
-        margin-right: 0;
-    }
-    .container-imagem {
-        width: 500px;
-        margin-right: 0;
-    }
-    .container-imagem img {
-        width: 100%;
-        height: 260px;
-    }
-    .btn-adicionar {
-        width: 250px;
-        justify-content: center;
-        left: 125px;
-        bottom: -24;
-    }
-    .produto {
-        margin-bottom: 36px;
-    }
-    .carrinho {
-        width: 100%;
-        max-height: fit-content;
-        border-radius: 0;
-    }
-}
-@media (max-width: 550px) {
-    .container-imagem {
-        max-width: 400px;
-        margin-right: 0;
-    }
-    .btn-adicionar {
-        width: 200px;
-        justify-content: center;
-        left: 100px;
-    }
-}
 .container-imagem img.ativo {
     border: 2px solid #c73b0f;
 }
@@ -379,4 +315,76 @@ body {
 .confirmar-button:hover {
     background-color: #9d3110;
     transition: 200ms ease-in;
+}
+@media (max-width: 1280px) {
+    .container-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .carrinho {
+        border-radius: 8px;
+        background-color: #ffffff;
+        width: 330px;
+        max-height: fit-content;
+        box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
+    }
+    .carrinho .conteudo-carrinho-inicial img {
+        width: 110px;
+        height: 110px;
+        margin-bottom: 24px;
+    }
+}
+@media (max-width: 940px) {
+    .container-grid {
+        grid-template-columns: 1fr;
+    }
+    .container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .container-grid {
+        display: flex;
+        flex-direction: column;
+        margin-right: 0;
+    }
+    .container-imagem {
+        width: 500px;
+        margin-right: 0;
+    }
+    .container-imagem img {
+        width: 100%;
+        height: 260px;
+    }
+    .btn-adicionar {
+        width: 250px;
+        justify-content: center;
+        left: 125px;
+        bottom: -24;
+    }
+    .produto {
+        margin-bottom: 36px;
+    }
+    .carrinho {
+        width: 100%;
+        max-height: fit-content;
+        border-radius: 0;
+    }
+}
+@media (max-width: 550px) {
+    .container-imagem {
+        max-width: 360px;
+        margin-right: 0;
+    }
+    .btn-adicionar {
+        width: 200px;
+        justify-content: center;
+        left: 80px;
+    }
+}
+@media (max-width: 400px) {
+    .container-imagem {
+        max-width: 330px;
+    }
+    .btn-adicionar {
+        left: 65px;
+    }
 }
