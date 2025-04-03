@@ -196,6 +196,7 @@ body {
     border: 2px solid #c73b0f;
 }
 .btn-adicionar.ativo {
+    border: 1px solid #c73b0f;
     background-color: #c73b0f;
     justify-content: space-between;
 }

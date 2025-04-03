@@ -1,5 +1,6 @@
 import createElementsCart from "./createElementsCart.js";
 import handleQuantityProduct from "./handleQuantityProduct.js";
+import changeValueTotal from "./changeValueTotal.js";
 
 export default function initButtonAdd() {
     const sections = document.querySelectorAll(".produto");
@@ -9,11 +10,15 @@ export default function initButtonAdd() {
         const descricaoProdutos = section.querySelector(".container-descricao");
         const containerImagem = section.querySelector(".container-imagem");
         const button = containerImagem.querySelector(".btn-adicionar");
+
         button.addEventListener("click", () => {
+            const idSection = section.getAttribute("id");
+
             if (!button.classList.contains(classAtivo)) {
                 addClassItens(button, containerImagem);
-                pushDadosButton(descricaoProdutos);
-                handleQuantityProduct(button);
+                pushDadosButton(descricaoProdutos, idSection);
+                handleQuantityProduct(button, idSection);
+                changeValueTotal();
             }
         });
     });
@@ -34,11 +39,11 @@ export default function initButtonAdd() {
         });
     };
 
-    const pushDadosButton = (descricaoProdutos) => {
+    const pushDadosButton = (descricaoProdutos, idProduto) => {
         const conteudos = {
             nomeProduto: descricaoProdutos.querySelector("h2").innerText,
             precoProduto: descricaoProdutos.querySelector(".preco").innerText,
-            quantidadeItem: 1,
+            idProduto,
         };
 
         createElementsCart(conteudos);
