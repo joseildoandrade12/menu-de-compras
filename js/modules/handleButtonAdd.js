@@ -1,5 +1,6 @@
 import createElementsCart from "./createElementsCart.js";
 import changeValueTotal from "./changeValueTotal.js";
+import closedItemCart from "./closedItemCart.js";
 
 export default function initButtonAdd() {
     const sections = document.querySelectorAll(".produto");
@@ -45,5 +46,6 @@ export default function initButtonAdd() {
         };
 
         createElementsCart(conteudos);
+        closedItemCart()
     };
 }
