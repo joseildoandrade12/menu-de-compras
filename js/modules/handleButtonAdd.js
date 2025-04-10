@@ -1,5 +1,4 @@
 import createElementsCart from "./createElementsCart.js";
-import handleQuantityProduct from "./handleQuantityProduct.js";
 import changeValueTotal from "./changeValueTotal.js";
 
 export default function initButtonAdd() {
@@ -17,7 +16,6 @@ export default function initButtonAdd() {
             if (!button.classList.contains(classAtivo)) {
                 addClassItens(button, containerImagem);
                 pushDadosButton(descricaoProdutos, idSection);
-                handleQuantityProduct(button, idSection);
                 changeValueTotal();
             }
         });

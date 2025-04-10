@@ -1,6 +1,7 @@
 import initChangeImage from "./changeImage.js";
 import createItensMenu from "./createItensMenu.js";
 import initButtonAdd from "./handleButtonAdd.js";
+import addEventsButtonAdd from "./addEventsButtonAdd.js";
 
 export default async function initContentCard() {
     const puxarDados = async () => {
@@ -13,15 +14,16 @@ export default async function initContentCard() {
         }
     };
     puxarDados();
- 
+
     const inserirDados = (dadosJson) => {
         dadosJson.forEach((dado, index) => {
             const section = createItensMenu(dado);
-            section.setAttribute('id', index + 1)
-            const imagem = section.querySelector('.container-imagem img')
-            const {image, name} = dado
-            initChangeImage(imagem, image, name)
-            initButtonAdd()
+            section.setAttribute("id", index + 1);
+            const imagem = section.querySelector(".container-imagem img");
+            const { image, name } = dado;
+            initChangeImage(imagem, image, name);
+            initButtonAdd();
         });
+        addEventsButtonAdd();
     };
 }
