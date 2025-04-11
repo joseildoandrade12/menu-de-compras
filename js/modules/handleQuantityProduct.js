@@ -1,6 +1,7 @@
 import changeQuantityItem from "./changeQuantityItem.js";
 import changeValueTotal from "./changeValueTotal.js";
 import removeClasses from "./removeClasses.js";
+import changeContentCart from "./changeContentCart.js";
 
 export default function handleQuantityProduct(button, idSection) {
     const buttonsAumentar = button.querySelector(".aumentar");
@@ -13,6 +14,7 @@ export default function handleQuantityProduct(button, idSection) {
         if (quantidade) quantidadeItens.innerText++;
         changeQuantityItem(idSection, quantidade + 1);
         changeValueTotal();
+        changeContentCart();
     }
 
     function diminuirProdutos() {
@@ -20,6 +22,7 @@ export default function handleQuantityProduct(button, idSection) {
         if (quantidade > 1) quantidadeItens.innerText--;
         changeQuantityItem(idSection, quantidade - 1);
         changeValueTotal();
+        changeContentCart();
         if (quantidade === 1) removeClasses(button);
     }
 

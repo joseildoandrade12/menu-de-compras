@@ -285,6 +285,7 @@ body {
     background-color: #f4edeb;
     margin-bottom: 16px;
 }
+
 .informacao-delivery span {
     padding-top: 3px;
     margin-right: 5px;
@@ -302,6 +303,7 @@ body {
     font-weight: 600;
 }
 .confirmar-button {
+    display: block;
     border: none;
     cursor: pointer;
     padding: 15px;
@@ -311,6 +313,9 @@ body {
     font-weight: 500;
     color: #ffffff;
     background-color: #c73b0f;
+}
+.confirmar-button.ativo, .informacao-delivery.ativo, .valor-total.ativo, .conteudo-carrinho-inicial.ativo {
+    display: none;
 }
 .confirmar-button:hover {
     background-color: #9d3110;

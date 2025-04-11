@@ -1,6 +1,7 @@
 import createElementsCart from "./createElementsCart.js";
 import changeValueTotal from "./changeValueTotal.js";
 import closedItemCart from "./closedItemCart.js";
+import changeContentCart from "./changeContentCart.js";
 
 export default function initButtonAdd() {
     const sections = document.querySelectorAll(".produto");
@@ -13,11 +14,11 @@ export default function initButtonAdd() {
 
         button.addEventListener("click", () => {
             const idSection = section.getAttribute("id");
-
             if (!button.classList.contains(classAtivo)) {
                 addClassItens(button, containerImagem);
                 pushDadosButton(descricaoProdutos, idSection);
                 changeValueTotal();
+                changeContentCart();
             }
         });
     });
@@ -46,6 +47,6 @@ export default function initButtonAdd() {
         };
 
         createElementsCart(conteudos);
-        closedItemCart()
+        closedItemCart();
     };
 }
